@@ -1,0 +1,25 @@
+{
+	"name" : "Cancel Reload",
+	"description" : "Allows you to cancel reloading, by shooting/aiming down",
+	"author" : "vojin154",
+	"contact" : "vojin154 (Discord)",
+	"version" : "1.0",
+	"hooks" : [
+		{
+			"hook_id": "lib/managers/menumanager",
+			"script_path": "menumanager.lua"
+		},
+		{
+			"hook_id": "lib/units/beings/player/states/playerstandard",
+			"script_path": "playerstandard.lua"
+		}
+	],
+	"updates": [
+		{
+			"identifier": "cancel_reload",
+			"host": {
+					"meta": "https://raw.githubusercontent.com/vojin154/pd2_cancel_reload/main/meta.json"
+				}
+        	}
+	]
+}
