@@ -3,6 +3,7 @@ function PlayerStandard:cancel_reload()
         local weapon = self._equipped_unit:base()
         if weapon:clip_not_empty() then --so you dont completely stop the auto reload when trying to shoot forcing you to reload manually
             self:_interupt_action_reload()
+            self._ext_camera:play_redirect(self:get_animation("idle")) --cancel the reload animation
         end
     end
 end
@@ -23,6 +24,5 @@ end)
 Hooks:PreHook(PlayerStandard, "_start_action_steelsight", "_start_action_steelsight_cancel_reload", function(self, t, gadget_state)
     if MenuCallbackHandler.cancel_reload_status().secondary_cancel then --check if cancelling reload when aiming is allowed
         self:cancel_reload()
-        self._ext_camera:play_redirect(self:get_animation("idle")) --cancel the reload animation
     end
 end)
